@@ -11,5 +11,10 @@
         {
             get { return "The child says hi..."; }
         }
+
+        public string ChildSecret
+        {
+            get { return "42"; }
+        }
     }
 }
