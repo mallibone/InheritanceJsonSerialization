@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace InheritanceJsonSerialization
 {
@@ -10,6 +11,7 @@ namespace InheritanceJsonSerialization
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Formatters.JsonFormatter.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
 
             // Web API routes
             config.MapHttpAttributeRoutes();
