@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using InheritanceJsonSerialization.Client.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Xamarin.Forms;
 
 namespace InheritanceJsonSerialization.Client.Services
 {
@@ -22,16 +19,19 @@ namespace InheritanceJsonSerialization.Client.Services
 
         public async Task<IEnumerable<ParentClass>> GetData()
         {
-            const string uri = "http://localhost:52890/api/inheritance";
+            // Ensure that uri matches the service backend you are calling
+            //const string uri = "http://localhost:52890/api/inheritance";
+            const string uri = "https://inheritancejsonserializationweb.azurewebsites.net/api/inheritance";
+
             var httpResult = await _httpClient.GetAsync(uri);
             var jsonContent = await httpResult.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<IEnumerable<ParentClass>>(jsonContent, new JsonSerializerSettings{TypeNameHandling = TypeNameHandling.All, Binder = new MySerializationBinder()});
+            var result = JsonConvert.DeserializeObject<IEnumerable<ParentClass>>(jsonContent, new JsonSerializerSettings{TypeNameHandling = TypeNameHandling.All, Binder = new InheritanceSerializationBinder()});
 
             return result;
         }
     }
 
-    public class MySerializationBinder : DefaultSerializationBinder
+    public class InheritanceSerializationBinder : DefaultSerializationBinder
     {
         public override Type BindToType(string assemblyName, string typeName)
         {
@@ -43,7 +43,6 @@ namespace InheritanceJsonSerialization.Client.Services
                 case "InheritanceJsonSerialization.Models.ChildClass": return typeof(ChildClass);
                 default: return base.BindToType(assemblyName, typeName);
             }
-
         }
     }
 
