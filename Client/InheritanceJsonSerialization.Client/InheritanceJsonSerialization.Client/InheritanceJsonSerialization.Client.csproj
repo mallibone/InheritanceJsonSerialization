@@ -39,7 +39,9 @@
     <Compile Include="Models\ChildClass.cs" />
     <Compile Include="Models\ParentClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\HttpHandler.cs" />
+    <Compile Include="Services\Http\Impl\HttpHandler.cs" />
+    <Compile Include="Services\Http\IHttpHandler.cs" />
+    <Compile Include="Services\Http\Impl\InheritanceSerializationBinder.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

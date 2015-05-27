@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using InheritanceJsonSerialization.Client.Models;
 using InheritanceJsonSerialization.Client.Services;
+using InheritanceJsonSerialization.Client.Services.Http.Impl;
 using Xunit;
 
 namespace InheritanceJsonSerialization.Client.IntegrationTest

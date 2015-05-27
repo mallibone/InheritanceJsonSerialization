@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using InheritanceJsonSerialization.Client.Models;
 using InheritanceJsonSerialization.Client.Services;
+using InheritanceJsonSerialization.Client.Services.Http;
 
 namespace InheritanceJsonSerialization.Client.ViewModels
 {

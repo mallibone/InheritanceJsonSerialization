@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GalaSoft.MvvmLight.Ioc;
 using InheritanceJsonSerialization.Client.Services;
+using InheritanceJsonSerialization.Client.Services.Http;
+using InheritanceJsonSerialization.Client.Services.Http.Impl;
 using InheritanceJsonSerialization.Client.ViewModels;
 using Microsoft.Practices.ServiceLocation;
 
